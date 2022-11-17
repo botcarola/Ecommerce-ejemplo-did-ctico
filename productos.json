@@ -7,7 +7,8 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 40000
+        "precio": 40000,
+        "destacado": false
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 50000
+        "precio": 50000,
+        "destacado": false
     },
     {
         "id": 3,
@@ -27,7 +29,9 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 45000
+        "precio": 45000,
+        "destacado": true
+
     },
     {
         "id": 4,
@@ -37,7 +41,8 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 38000
+        "precio": 38000,
+        "destacado": false
     },
     {
         "id": 5,
@@ -47,7 +52,8 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 47000
+        "precio": 47000,
+        "destacado": true
     },
     {
         "id": 6,
@@ -57,7 +63,8 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 51000
+        "precio": 51000,
+        "destacado": false
     },
     {
         "id": 7,
@@ -67,7 +74,8 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 39000
+        "precio": 39000,
+        "destacado": false
     },
     {
         "id": 8,
@@ -77,7 +85,8 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 43900
+        "precio": 43900,
+        "destacado": true
     },
     {
         "id": 9,
@@ -87,7 +96,8 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 57000
+        "precio": 57000,
+        "destacado": false
     },
     {
         "id": 10,
@@ -97,6 +107,7 @@
         "origen": "Importado",
         "marca": "Nike",
         "garantia": "Por defecto de fabricación.",
-        "precio": 46800
+        "precio": 46800,
+        "destacado": false
     }
 ]

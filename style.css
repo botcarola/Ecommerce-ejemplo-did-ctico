@@ -3,8 +3,7 @@
 }
 
 body, ul {
-    margin: 0;
-    background-color: rgb(206, 172, 239);
+    margin: 0;   
 }
 
 ul {
@@ -75,18 +74,42 @@ nav {
     height: 100%;
 }
 
+.container-sub {
+    width: 100%;
+    text-align: left;
+}
+
 .card {   
     padding: 20px;    
-    margin: 50px;
+    margin: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.sub-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.precio-producto {
+    color: rgb(4, 163, 102);
+    margin: 0;
 }
 
 main,
 .home {
     position: relative;
-    height: 100%;
+    height: 100%;   
 }
 
 .home {
@@ -96,6 +119,7 @@ main,
     color: #000;
     margin: 0;
     padding: 0;
+    background-color: rgb(206, 172, 239);
 }
 
 .swiper {
@@ -133,6 +157,22 @@ main,
     color: rebeccapurple;
 }
 
+.subtitle-home, .subtitle-resultados {
+    color: rgb(48, 48, 48);
+    text-align: center;    
+}
+
+.subtitle-home {
+    margin: 30px 0px 0px 0px;
+    font-size: 2rem;
+}
+
+.productos-destacados {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 footer {
     display: flex;
     flex-direction: column;
@@ -143,6 +183,7 @@ footer {
 
 .list-footer {
     display: flex;
+    padding: 0;
 }
 
 .list-footer li {
