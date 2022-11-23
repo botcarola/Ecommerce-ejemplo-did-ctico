@@ -1,4 +1,3 @@
-// DOM
 const apartadoHome = document.querySelector(".home")
 const apartadoProductos = document.querySelector(".productos")
 const apartadoCarrito = document.querySelector(".carrito")
@@ -10,9 +9,7 @@ const navProductos = document.querySelector("#products-nav")
 const navEmptyCart = document.querySelector("#empty-cart-nav")
 const navFillCart = document.querySelector("#cart-fill-nav")
 const navContacto = document.querySelector("#contact-nav")
-
-
-// Navegación
+const containerProductos = document.querySelector(".container-cards")
 
 const navegacion = ( trigger, visible , oculto1, oculto2, oculto3  ) => {
     
@@ -31,8 +28,6 @@ navegacion( navEmptyCart, apartadoCarrito, apartadoHome, apartadoProductos, apar
 navegacion( navFillCart, apartadoCarrito, apartadoHome, apartadoProductos, apartadoContacto)
 navegacion( navContacto, apartadoContacto, apartadoHome, apartadoProductos, apartadoCarrito )
 
-
-// Carrousel
 const swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     centeredSlides: true,
@@ -52,10 +47,10 @@ const swiper = new Swiper(".mySwiper", {
 
 const filterDestacados = array => array.filter( curr => curr.destacado === true)
 
-const destacadosHtml =  array => {
+const cardsAHtml =  array => {
     const arrayReduc = array.reduce( ( acc, curr ) => {
         return acc + `
-            <article class="card">
+            <article class="card" id=${curr.id}>
                 <div class="container-img">
                     <img src=${curr.img[0]} alt="producto ${curr.id}">
                 </div>
@@ -65,20 +60,20 @@ const destacadosHtml =  array => {
                             ${curr.producto}
                         </h2>
                         ${ 
-                            curr.destacado === true && 
+                            curr.destacado === true ? 
                                 `<h3>
                                     30% OFF
                                 </h3>`
+                                :
+                                ""
                         }
-                    </div>
-                    <div>
+                    </div>                    
                         <h3 class="precio-producto">
                             $${curr.destacado === true ? curr.precio - ((curr.precio * 30) / 100) : curr.precio}
                         </h3>
                         <button class="agregar-carrito">
                             Añadir al carrito
-                        </button>
-                    </div>
+                        </button>                    
                 </div>
             </article>
         `
@@ -87,13 +82,13 @@ const destacadosHtml =  array => {
     return arrayReduc
 } 
 
-const destacadosHome = async () => {
+const fetchProductos = async () => {
     const res = await fetch("productos.json")
     const data = await res.json()
     resultadosDestacados.innerHTML = `${filterDestacados(data).length} Resultados` 
-    contenedorDestacados.innerHTML = destacadosHtml(filterDestacados(data))
+    contenedorDestacados.innerHTML = cardsAHtml(filterDestacados(data))
+    containerProductos.innerHTML = cardsAHtml(data)
 }
 
-destacadosHome()
-
+fetchProductos()
 
