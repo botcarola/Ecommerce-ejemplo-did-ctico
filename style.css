@@ -67,13 +67,6 @@ nav {
     display: none;
 }
 
-.productos {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;    
-    justify-content: center;
-}
-
 .container-img {
     width: 250px;
     height: 250px;

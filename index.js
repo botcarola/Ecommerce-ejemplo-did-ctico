@@ -11,6 +11,13 @@ const navFillCart = document.querySelector("#cart-fill-nav")
 const navContacto = document.querySelector("#contact-nav")
 const containerProductos = document.querySelector(".container-cards")
 
+let carrito = []
+let productosLs = []
+
+const verificarLs = () => localStorage.getItem("carrito") === null && localStorage.setItem("carrito", [])
+
+verificarLs()
+
 const navegacion = ( trigger, visible , oculto1, oculto2, oculto3  ) => {
     
     trigger.onclick = () => {
@@ -71,7 +78,7 @@ const cardsAHtml =  array => {
                         <h3 class="precio-producto">
                             $${curr.destacado === true ? curr.precio - ((curr.precio * 30) / 100) : curr.precio}
                         </h3>
-                        <button class="agregar-carrito">
+                        <button class="agregar-carrito" id=${curr.id}>
                             Añadir al carrito
                         </button>                    
                 </div>
@@ -82,13 +89,40 @@ const cardsAHtml =  array => {
     return arrayReduc
 } 
 
+const subirAlLs = ( array, clave ) => {
+    const aJSON = JSON.stringify( array )
+    localStorage.setItem( clave, aJSON )
+}
+
+const cardsAlLs = ( tarjetas, data ) => {
+
+    for (let i = 0; i < tarjetas.length; i++ ){
+        tarjetas[i].onclick = () => {
+            const id = tarjetas[i].id
+            const filtrarProducto = data.find( curr => curr.id === Number(id) )
+            carrito.push( filtrarProducto )                
+            subirAlLs( carrito, "carrito" )               
+        }
+    }
+}
+
 const fetchProductos = async () => {
     const res = await fetch("productos.json")
     const data = await res.json()
-    resultadosDestacados.innerHTML = `${filterDestacados(data).length} Resultados` 
-    contenedorDestacados.innerHTML = cardsAHtml(filterDestacados(data))
-    containerProductos.innerHTML = cardsAHtml(data)
+    resultadosDestacados.innerHTML = `${ filterDestacados(data).length } Resultados` 
+    contenedorDestacados.innerHTML = cardsAHtml( filterDestacados(data) )
+    containerProductos.innerHTML = cardsAHtml( data )
+    const buttonCards = document.querySelectorAll(".agregar-carrito")  
+    cardsAlLs(buttonCards, data)    
 }
 
 fetchProductos()
+
+const guardarDeLStorage = ( clave ) => {
+    const nuevoArray = localStorage.getItem(clave) || "[]"
+    return JSON.parse(nuevoArray)    
+}
+
+productosLs = guardarDeLStorage("carrito")
+carrito = productosLs
 
